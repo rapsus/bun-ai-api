@@ -1,12 +1,10 @@
 import { cerebrasService } from './services/cerebras';
 import { groqService } from './services/groq';
-import { openrouterService } from './services/openrouter';
 import type { AIService, ChatMessage } from './types';
 
 const services: AIService[] = [
     groqService,
     cerebrasService,
-    openrouterService,
     // Aquí puedes agregar más servicios de IA en el futuro
 ]
 let currentServiceIndex = 0;
@@ -30,7 +28,7 @@ const server = Bun.serve({
 
             return new Response(stream, {
                 headers: {
-                    'Content-Type': 'text/event-stream',    
+                    'Content-Type': 'text/event-stream',
                     'Cache-Control': 'no-cache',
                     'Connection': 'keep-alive',
                 },
