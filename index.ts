@@ -1,10 +1,12 @@
 import { cerebrasService } from './services/cerebras';
 import { groqService } from './services/groq';
+import { openrouterService } from './services/openrouter';
 import type { AIService, ChatMessage } from './types';
 
 const services: AIService[] = [
     groqService,
     cerebrasService,
+    openrouterService,
     // Aquí puedes agregar más servicios de IA en el futuro
 ]
 let currentServiceIndex = 0;
