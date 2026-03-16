@@ -1,9 +1,7 @@
 import { OpenRouter } from "@openrouter/sdk";
 import type { AIService, ChatMessage } from '../types';
 
-const openrouter = new OpenRouter({
-    apiKey: process.env.OPENROUTER_API_KEY || ''
-});
+const openrouter = new OpenRouter()
 
 export const openrouterService: AIService = {
     name: 'OpenRouter',
