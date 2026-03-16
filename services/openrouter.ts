@@ -1,14 +1,16 @@
 import { OpenRouter } from "@openrouter/sdk";
 import type { AIService, ChatMessage } from '../types';
 
-const openrouter = new OpenRouter()
+const openrouter = new OpenRouter({
+    apiKey: process.env.OPENROUTER_API_KEY
+})
 
 export const openrouterService: AIService = {
     name: 'OpenRouter',
     async chat(messages: ChatMessage[]) {
         const response = await openrouter.chat.send({
             chatGenerationParams: {
-                model: 'qwen-3-235b-a22b-instruct-2507',
+                model: 'qwen/qwen-3-235b-a22b-instruct-2507',
                 messages: messages as any,
                 stream: true,
                 // CAMBIO CLAVE: de max_tokens a maxTokens
